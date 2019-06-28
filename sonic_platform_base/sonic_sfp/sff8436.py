@@ -837,7 +837,7 @@ class sff8436Dom(sffbase):
                  'type': 'bitvalue'},
             'InitCompleteFlag':
                 {'offset': 6,
-                 'bit': 4,
+                 'bit': 0,
                  'type': 'bitvalue'},
             'VccHighAlarm':
                 {'offset': 7,
@@ -1278,6 +1278,68 @@ class sff8436Dom(sffbase):
              'type': 'bitvalue'},
     }
 
+    #SFF8436 Table 39, Option Values (Address 192-195) (Page 00)
+    #each field indicates whether that feature is supported on this module
+    dom_option_value_masks = {
+        'RXOutputAmplitudeProgramming':
+            {'offset': 1,
+             'bit': 0,
+             'type': 'bitvalue'},
+        'RxSquelchDisable':
+            {'offset': 2,
+             'bit': 3,
+             'type': 'bitvalue'},
+        'RxOutputDisableCapable':
+            {'offset': 2,
+             'bit': 2,
+             'type': 'bitvalue'},
+        'TxSquelchDisable':
+            {'offset': 2,
+             'bit': 1,
+             'type': 'bitvalue'},
+        'TxSquelch':
+            {'offset': 2,
+             'bit': 0,
+             'type': 'bitvalue'},
+        'TxSquelch':
+            {'offset': 2,
+             'bit': 1,
+             'type': 'bitvalue'},
+        'MemoryPage02Provided':
+            {'offset': 3,
+             'bit': 7,
+             'type': 'bitvalue'},
+        'MemoryPage01Provided':
+            {'offset': 3,
+             'bit': 6,
+             'type': 'bitvalue'},
+        'MemoryPage01Provided':
+            {'offset': 3,
+             'bit': 6,
+             'type': 'bitvalue'},
+        'RATE_SELECT':
+            {'offset': 3,
+             'bit': 5,
+             'type': 'bitvalue'},
+        'TxDisable':
+            {'offset': 3,
+             'bit': 4,
+             'type': 'bitvalue'},
+        'TxFault':
+            {'offset': 3,
+             'bit': 3,
+             'type': 'bitvalue'},
+        'TxSquelch_OMA_or_ReducePave':
+            {'offset': 3,
+             'bit': 2,
+             'type': 'bitvalue'},
+        'TxLOS':
+            {'offset': 3,
+             'bit': 1,
+             'type': 'bitvalue'},
+    }
+
+
     def __init__(self, eeprom_raw_data=None, calibration_type=1):
         self._calibration_type = calibration_type
         start_pos = 0
@@ -1312,6 +1374,14 @@ class sff8436Dom(sffbase):
 
     def parse_control_bytes(self, eeprom_raw_data, start_pos):
         return sffbase.parse(self, self.dom_control_bytes_masks, eeprom_raw_data, start_pos)
+
+    def parse_module_monitor_params(self, eeprom_raw_data, start_pos):
+        return sffbase.parse(self, self.dom_module_monitor, eeprom_raw_data,
+                    start_pos)
+
+    def parse_option_params(self, eeprom_raw_data, start_pos):
+        return sffbase.parse(self, self.dom_option_value_masks, eeprom_raw_data,
+                    start_pos)
 
     def dump_pretty(self):
         if self.dom_data == None:
