@@ -1196,78 +1196,39 @@ class sff8436Dom(sffbase):
         }
 
     dom_control_bytes_masks = {
-        # 'TX4Disable':
-        #     {'offset': 0,
-        #      'bit': 3,
-        #      'type': 'bitvalue'},
-        # 'TX3Disable':
-        #     {'offset': 0,
-        #      'bit': 2,
-        #      'type': 'bitvalue'},
-        # 'TX2Disable':
-        #     {'offset': 0,
-        #      'bit': 1,
-        #      'type': 'bitvalue'},
-        # 'TX1Disable':
-        #     {'offset': 0,
-        #      'bit': 0,
-        #      'type': 'bitvalue'},
-        # 'Rx4RateSelect':
-        #     {'offset': 1,
-        #      'bit': 7,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Rx3RateSelect':
-        #     {'offset': 1,
-        #      'bit': 5,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Rx2RateSelect':
-        #     {'offset': 1,
-        #      'bit': 3,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Rx1RateSelect':
-        #     {'offset': 1,
-        #      'bit': 1,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Tx4RateSelect':
-        #     {'offset': 2,
-        #      'bit': 7,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Tx3RateSelect':
-        #     {'offset': 2,
-        #      'bit': 5,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Tx2RateSelect':
-        #     {'offset': 2,
-        #      'bit': 3,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Tx1RateSelect':
-        #     {'offset': 2,
-        #      'bit': 1,
-        #      'width' : 2,
-        #      'type': 'bitvalue'},
-        # 'Rx4AppSelect':
-        #     {'offset': 3,
-        #      'size': 1,
-        #      'type': 'int'},
-        # 'Rx3AppSelect':
-        #     {'offset': 4,
-        #      'size': 1,
-        #      'type': 'int'},
-        # 'Rx2AppSelect':
-        #     {'offset': 5,
-        #      'size': 1,
-        #      'type': 'int'},
-        # 'Rx1AppSelect':
-        #     {'offset': 6,
-        #      'size': 1,
-        #      'type': 'int'},
+        'TX4Disable':
+            {'offset': 0,
+             'bit': 3,
+             'type': 'bitvalue'},
+        'TX3Disable':
+            {'offset': 0,
+             'bit': 2,
+             'type': 'bitvalue'},
+        'TX2Disable':
+            {'offset': 0,
+             'bit': 1,
+             'type': 'bitvalue'},
+        'TX1Disable':
+            {'offset': 0,
+             'bit': 0,
+             'type': 'bitvalue'},
+        # RxXRateSelect & Tx4RateSelect are not supported yet.
+        'Rx4AppSelect':
+            {'offset': 3,
+             'size': 1,
+             'type': 'int'},
+        'Rx3AppSelect':
+            {'offset': 4,
+             'size': 1,
+             'type': 'int'},
+        'Rx2AppSelect':
+            {'offset': 5,
+             'size': 1,
+             'type': 'int'},
+        'Rx1AppSelect':
+            {'offset': 6,
+             'size': 1,
+             'type': 'int'},
         'PowerSet':
             {'offset': 7,
              'bit': 1,
@@ -1301,17 +1262,9 @@ class sff8436Dom(sffbase):
             {'offset': 2,
              'bit': 0,
              'type': 'bitvalue'},
-        'TxSquelch':
-            {'offset': 2,
-             'bit': 1,
-             'type': 'bitvalue'},
         'MemoryPage02Provided':
             {'offset': 3,
              'bit': 7,
-             'type': 'bitvalue'},
-        'MemoryPage01Provided':
-            {'offset': 3,
-             'bit': 6,
              'type': 'bitvalue'},
         'MemoryPage01Provided':
             {'offset': 3,
