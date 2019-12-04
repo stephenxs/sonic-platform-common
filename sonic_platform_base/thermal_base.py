@@ -37,6 +37,7 @@ class ThermalBase(device_base.DeviceBase):
         """
         raise NotImplementedError
 
+
     def get_low_threshold(self):
         """
         Retrieves the low threshold temperature of thermal
@@ -46,6 +47,7 @@ class ThermalBase(device_base.DeviceBase):
             up to nearest thousandth of one degree Celsius, e.g. 30.125
         """
         raise NotImplementedError
+
 
     def set_high_threshold(self, temperature):
         """
@@ -60,12 +62,38 @@ class ThermalBase(device_base.DeviceBase):
         """
         raise NotImplementedError
 
+
     def set_low_threshold(self, temperature):
         """
         Sets the low threshold temperature of thermal
 
         Args : 
             temperature: A float number up to nearest thousandth of one degree Celsius,
+            e.g. 30.125
+
+        Returns:
+            A boolean, True if threshold is set successfully, False if not
+        """
+        raise NotImplementedError
+
+
+    def get_high_critical_threshold(self):
+        """
+        Retrieves the high critical threshold temperature of thermal
+
+        Returns:
+            A float number, the high critical threshold temperature of thermal in Celsius
+            up to nearest thousandth of one degree Celsius, e.g. 30.125
+        """
+        raise NotImplementedError
+
+
+    def set_high_critical_threshold(self, temperature):
+        """
+        Sets the high critical threshold temperature of thermal
+
+        Args : 
+            temperature: A float number up to nearest thousandth of one degree Celsius, 
             e.g. 30.125
 
         Returns:
